@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xXE-Wz-43Y">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--手の選択-->
+        <scene sceneID="jsc-tR-Pe9">
+            <objects>
+                <viewController id="xXE-Wz-43Y" customClass="SelectHandViewController" customModule="Practice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aEZ-1U-j9Q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vs.赤ちゃん" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wd-Ix-FY9">
+                                <rect key="frame" x="135.5" y="169" width="143" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hee-iY-TbT">
+                                <rect key="frame" x="184" y="403" width="46" height="30"/>
+                                <state key="normal" title="グー！"/>
+                                <connections>
+                                    <action selector="stoneButton:" destination="xXE-Wz-43Y" eventType="touchUpInside" id="lLL-jA-C3w"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Beg-aa-Llo">
+                                <rect key="frame" x="176" y="513" width="62" height="30"/>
+                                <state key="normal" title="チョキ！"/>
+                                <connections>
+                                    <action selector="scissorsButton:" destination="xXE-Wz-43Y" eventType="touchUpInside" id="z1L-Wy-pdi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpv-mb-sJM">
+                                <rect key="frame" x="184" y="623" width="46" height="30"/>
+                                <state key="normal" title="パー！"/>
+                                <connections>
+                                    <action selector="paperButton:" destination="xXE-Wz-43Y" eventType="touchUpInside" id="m4k-X0-sGW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出す手を選ぼう！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8VI-bK-pyg">
+                                <rect key="frame" x="137.5" y="302" width="139" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7Wd-Ix-FY9" firstAttribute="top" secondItem="6hO-TE-ngA" secondAttribute="top" constant="125" id="33z-ho-uLi"/>
+                            <constraint firstItem="8VI-bK-pyg" firstAttribute="centerX" secondItem="aEZ-1U-j9Q" secondAttribute="centerX" id="8w9-vH-PuM"/>
+                            <constraint firstItem="7Wd-Ix-FY9" firstAttribute="centerX" secondItem="aEZ-1U-j9Q" secondAttribute="centerX" id="BVB-Pg-MhT"/>
+                            <constraint firstItem="Beg-aa-Llo" firstAttribute="top" secondItem="Hee-iY-TbT" secondAttribute="bottom" constant="80" id="HJ7-pE-UvY"/>
+                            <constraint firstItem="xpv-mb-sJM" firstAttribute="top" secondItem="Beg-aa-Llo" secondAttribute="bottom" constant="80" id="LIE-aI-0yh"/>
+                            <constraint firstItem="xpv-mb-sJM" firstAttribute="centerX" secondItem="aEZ-1U-j9Q" secondAttribute="centerX" id="Q18-Ls-c9A"/>
+                            <constraint firstItem="Beg-aa-Llo" firstAttribute="centerX" secondItem="aEZ-1U-j9Q" secondAttribute="centerX" id="bn7-6I-l2E"/>
+                            <constraint firstItem="8VI-bK-pyg" firstAttribute="top" secondItem="7Wd-Ix-FY9" secondAttribute="bottom" constant="100" id="hmd-ZD-OdF"/>
+                            <constraint firstItem="Hee-iY-TbT" firstAttribute="top" secondItem="8VI-bK-pyg" secondAttribute="bottom" constant="80" id="rfw-Us-4j1"/>
+                            <constraint firstItem="Hee-iY-TbT" firstAttribute="centerX" secondItem="aEZ-1U-j9Q" secondAttribute="centerX" id="yrU-jV-64E"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6hO-TE-ngA"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="手の選択" id="2SY-yA-anG"/>
+                    <connections>
+                        <outlet property="vsName" destination="7Wd-Ix-FY9" id="gd6-5p-vPU"/>
+                        <segue destination="vg7-LG-bSd" kind="push" identifier="toResult" id="fBO-5T-jEk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V3M-Yi-y1x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="152" y="163"/>
+        </scene>
+        <!--Result-->
+        <scene sceneID="fJX-8L-p1L">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Result" id="vg7-LG-bSd" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="mkD-QA-h6L"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BtN-CF-ArA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="830" y="163"/>
+        </scene>
+    </scenes>
+</document>
