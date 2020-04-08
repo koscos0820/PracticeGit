@@ -10,9 +10,8 @@ import UIKit
 
 class ResultViewController: ViewController {
     
-    var vsName: String!
+    var selectedCpuName: String!
     var playerHand: String!
-    private var cpuObj: Human!
     
     @IBOutlet private weak var cpuVoiceLabel: UILabel!
     @IBOutlet private weak var cpuHandLabel: UILabel!
@@ -21,67 +20,69 @@ class ResultViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        createCpuObj(vsName)
         
-        let cpuHand = cpuObj.hand()
+        guard let selectedCpuName = selectedCpuName else { return }
+        guard let playerHand = playerHand else { return }
         
-        let resultMsg = createResultMessage(cpuHand, playerHand)
-        
+        let cpuObj = createCpuObj(selectedCpuName)
+        let cpuHand = cpuObj.createCpuHand()
+        let resultMessage = createResultMessage(checkResult(cpuHand, playerHand))
         // Labelにテキストを登録
         cpuVoiceLabel.text = cpuObj.voice
-        cpuHandLabel.text = "\(vsName as String)の手: \(cpuHand)"
-        selectedHandLabel.text = "あなたの手: \(playerHand as String)"
-        resultMessageLabel.text = resultMsg
+        cpuHandLabel.text = "\(selectedCpuName)の手: \(cpuObj.createCpuHand())"
+        selectedHandLabel.text = "あなたの手: \(playerHand)"
+        resultMessageLabel.text = resultMessage
     }
     
     @IBAction private func returnTopButton(_ sender: Any) {
-        
-        self.navigationController?.popToRootViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
-    private func createCpuObj(_ cpuName: String) {
-        if cpuName == "赤ちゃん" {
-            cpuObj = Baby()
-        }else {
-            return
-        }
+    private func createCpuObj(_ cpuName: String) -> Human {
+        //        if cpuName == "赤ちゃん" {
+        //            return Baby()
+        //        }
+        return Baby()
     }
     
-    private func createResultMessage(_ cpuHand: String, _ userHand: String) -> String {
-           
-        let win = "あなたの勝ちです！"
-        let lose = "あなたの負け！"
-        let even = "あいこです！"
-        
+    private func checkResult(_ cpuHand: String, _ playerHand: String) -> String {
         if cpuHand == "グー" {
-            switch userHand {
+            switch playerHand {
             case "パー":
-                return win
+                return "win"
             case "チョキ":
-                return lose
+                return "lose"
             default:
-                return even
+                return "even"
             }
         }else if cpuHand == "チョキ" {
-            switch userHand {
+            switch playerHand {
             case "グー":
-                return win
+                return "win"
             case "パー":
-                return lose
+                return "lose"
             default:
-                return even
+                return "even"
             }
         }else {
-            switch userHand {
+            switch playerHand {
             case "チョキ":
-                return win
+                return "win"
             case "グー":
-                return lose
+                return "lose"
             default:
-                return even
+                return "even"
             }
         }
     }
     
+    private func createResultMessage(_ result: String) -> String {
+        if result == "win" {
+            return "あなたの勝ちです！"
+        }else if result == "lose" {
+            return "あなたの負け！"
+        }else {
+            return "あいこです！"
+        }
+    }
 }

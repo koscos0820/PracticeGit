@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     private let segueIdentifier = "toSelectHand"
     
     override func viewDidLoad() {
@@ -18,16 +18,16 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == segueIdentifier {
-                let selectHandObj = segue.destination as! SelectHandViewController
-                selectHandObj.selectName = sender as! String
-            }
+        if segue.identifier == segueIdentifier {
+            let selectHandObj = segue.destination as! SelectHandViewController
+            selectHandObj.selectName = sender as? String
+        }
     }
-
+    
     @IBAction private func babyButton(_ sender: Any) {
         let selectName = "赤ちゃん"
-        self.performSegue(withIdentifier: segueIdentifier,
-        sender: selectName)
+        performSegue(withIdentifier: segueIdentifier,
+                          sender: selectName)
     }
     
     @IBAction private func childButton(_ sender: Any) {
@@ -36,6 +36,6 @@ class ViewController: UIViewController {
     @IBAction private func adultButton(_ sender: Any) {
     }
     
-
+    
 }
 

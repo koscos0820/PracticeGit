@@ -10,41 +10,38 @@ import UIKit
 
 class SelectHandViewController: ViewController {
     
-    var selectName = "赤ちゃん"
+    var selectName: String!
     
     private let segueName = "toResult"
     
-    @IBOutlet private weak var vsName: UILabel!
+    @IBOutlet private weak var vsNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        vsName.text = "vs.\(selectName)"
+        guard let selectName = selectName else { return }
+        vsNameLabel.text = "vs.\(selectName)"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == segueName {
-                let resultObj = segue.destination as! ResultViewController
-                resultObj.vsName = selectName
-                resultObj.playerHand = sender as? String
-            }
+        if segue.identifier == segueName {
+            let resultObj = segue.destination as! ResultViewController
+            resultObj.selectedCpuName = selectName
+            resultObj.playerHand = sender as? String
+        }
     }
     
     @IBAction private func stoneButton(_ sender: Any) {
         let selectHand = "グー"
-        self.performSegue(withIdentifier: segueName,
-        sender: selectHand)
+        performSegue(withIdentifier: segueName, sender: selectHand)
     }
     
     @IBAction private func scissorsButton(_ sender: Any) {
         let selectHand = "チョキ"
-        self.performSegue(withIdentifier: segueName,
-        sender: selectHand)
+        performSegue(withIdentifier: segueName, sender: selectHand)
     }
     
     @IBAction private func paperButton(_ sender: Any) {
         let selectHand = "パー"
-        self.performSegue(withIdentifier: segueName,
-        sender: selectHand)
+        performSegue(withIdentifier: segueName, sender: selectHand)
     }
 }

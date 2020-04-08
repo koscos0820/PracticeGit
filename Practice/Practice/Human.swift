@@ -9,15 +9,15 @@
 class Human {
     
     var name: String!
-    
     var voice: String!
+    var selectableCpuHands: [String]!
     
-    var hands: [String]!
-    
-    func hand() -> String {
-        
-        let randomNum = Int.random(in: 0...hands.count-1)
-        
-        return hands[randomNum]
+    func createCpuHand() -> String {
+        if let _ = selectableCpuHands {
+            let randomNum = Int.random(in: 0...selectableCpuHands.count-1)
+            return selectableCpuHands[randomNum]
+        }else {
+            return "エラー"
+        }
     }
 }

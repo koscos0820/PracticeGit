@@ -66,7 +66,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="手の選択" id="2SY-yA-anG"/>
                     <connections>
-                        <outlet property="vsName" destination="7Wd-Ix-FY9" id="gd6-5p-vPU"/>
+                        <outlet property="vsNameLabel" destination="7Wd-Ix-FY9" id="txb-BY-xYN"/>
                         <segue destination="vg7-LG-bSd" kind="push" identifier="toResult" id="fBO-5T-jEk"/>
                     </connections>
                 </viewController>
