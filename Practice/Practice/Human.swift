@@ -16,7 +16,7 @@ class Human {
         if let _ = selectableCpuHands {
             let randomNum = Int.random(in: 0...selectableCpuHands.count-1)
             return selectableCpuHands[randomNum]
-        }else {
+        } else {
             return "エラー"
         }
     }

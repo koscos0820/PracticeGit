@@ -19,15 +19,16 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueIdentifier {
-            let selectHandObj = segue.destination as! SelectHandViewController
-            selectHandObj.selectName = sender as? String
+            if let selectName = sender as? String {
+                (segue.destination as! SelectHandViewController).selectName = selectName
+            } else {
+                fatalError()
+            }
         }
     }
     
     @IBAction private func babyButton(_ sender: Any) {
-        let selectName = "赤ちゃん"
-        performSegue(withIdentifier: segueIdentifier,
-                          sender: selectName)
+        transitionSelectHand("赤ちゃん")
     }
     
     @IBAction private func childButton(_ sender: Any) {
@@ -36,6 +37,8 @@ class ViewController: UIViewController {
     @IBAction private func adultButton(_ sender: Any) {
     }
     
-    
+    private func transitionSelectHand(_ selectHand: String) {
+        performSegue(withIdentifier: segueIdentifier, sender: selectHand)
+    }
 }
 

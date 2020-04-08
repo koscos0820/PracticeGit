@@ -18,30 +18,32 @@ class SelectHandViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let selectName = selectName else { return }
+        guard let selectName = selectName else { fatalError() }
         vsNameLabel.text = "vs.\(selectName)"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueName {
-            let resultObj = segue.destination as! ResultViewController
-            resultObj.selectedCpuName = selectName
-            resultObj.playerHand = sender as? String
+            (segue.destination as! ResultViewController).selectedCpuName = selectName
+            if let playerHand = sender as? String {
+                (segue.destination as! ResultViewController).playerHand = playerHand
+            }
         }
     }
     
     @IBAction private func stoneButton(_ sender: Any) {
-        let selectHand = "グー"
-        performSegue(withIdentifier: segueName, sender: selectHand)
+        transitionResult("グー")
     }
     
     @IBAction private func scissorsButton(_ sender: Any) {
-        let selectHand = "チョキ"
-        performSegue(withIdentifier: segueName, sender: selectHand)
+        transitionResult("チョキ")
     }
     
     @IBAction private func paperButton(_ sender: Any) {
-        let selectHand = "パー"
+        transitionResult("パー")
+    }
+    
+    private func transitionResult(_ selectHand: String) {
         performSegue(withIdentifier: segueName, sender: selectHand)
     }
 }

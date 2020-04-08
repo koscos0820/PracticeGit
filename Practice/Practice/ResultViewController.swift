@@ -21,15 +21,15 @@ class ResultViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let selectedCpuName = selectedCpuName else { return }
-        guard let playerHand = playerHand else { return }
+        guard let selectedCpuName = selectedCpuName,
+            let playerHand = playerHand else { fatalError() }
         
         let cpuObj = createCpuObj(selectedCpuName)
         let cpuHand = cpuObj.createCpuHand()
         let resultMessage = createResultMessage(checkResult(cpuHand, playerHand))
         // Labelにテキストを登録
         cpuVoiceLabel.text = cpuObj.voice
-        cpuHandLabel.text = "\(selectedCpuName)の手: \(cpuObj.createCpuHand())"
+        cpuHandLabel.text = "\(selectedCpuName)の手: \(cpuHand)"
         selectedHandLabel.text = "あなたの手: \(playerHand)"
         resultMessageLabel.text = resultMessage
     }
@@ -39,49 +39,53 @@ class ResultViewController: ViewController {
     }
     
     private func createCpuObj(_ cpuName: String) -> Human {
-        //        if cpuName == "赤ちゃん" {
-        //            return Baby()
-        //        }
         return Baby()
     }
     
-    private func checkResult(_ cpuHand: String, _ playerHand: String) -> String {
+    private enum Result {
+        case win
+        case lose
+        case even
+    }
+    
+    private func checkResult(_ cpuHand: String, _ playerHand: String) -> Result {
+        
         if cpuHand == "グー" {
             switch playerHand {
             case "パー":
-                return "win"
+                return .win
             case "チョキ":
-                return "lose"
+                return .lose
             default:
-                return "even"
-            }
-        }else if cpuHand == "チョキ" {
+                return .even           }
+        } else if cpuHand == "チョキ" {
             switch playerHand {
             case "グー":
-                return "win"
+                return .win
             case "パー":
-                return "lose"
+                return .lose
             default:
-                return "even"
+                return .even
             }
-        }else {
+        } else {
             switch playerHand {
             case "チョキ":
-                return "win"
+                return .win
             case "グー":
-                return "lose"
+                return .lose
             default:
-                return "even"
+                return .even
             }
         }
     }
     
-    private func createResultMessage(_ result: String) -> String {
-        if result == "win" {
+    private func createResultMessage(_ result: Result) -> String {
+        switch result {
+        case .win:
             return "あなたの勝ちです！"
-        }else if result == "lose" {
+        case .lose:
             return "あなたの負け！"
-        }else {
+        case .even:
             return "あいこです！"
         }
     }
