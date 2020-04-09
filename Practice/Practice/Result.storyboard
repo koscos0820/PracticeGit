@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CMb-eD-uKs">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--勝敗-->
+        <scene sceneID="7u9-Lf-f5E">
+            <objects>
+                <viewController id="CMb-eD-uKs" customClass="ResultViewController" customModule="Practice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qx2-31-wjF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="赤ちゃんの手：　グー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wC-dC-oil">
+                                <rect key="frame" x="120" y="290" width="174" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あなたの手：　パー" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asm-qU-8e5">
+                                <rect key="frame" x="129" y="361" width="156" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あなたの勝ち！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNp-W8-wXN">
+                                <rect key="frame" x="128.5" y="502" width="157" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKj-Pf-b48">
+                                <rect key="frame" x="161" y="649" width="92" height="30"/>
+                                <state key="normal" title="もう一回遊ぶ"/>
+                                <connections>
+                                    <action selector="returnTopButton:" destination="CMb-eD-uKs" eventType="touchUpInside" id="L4y-mF-t1j"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="赤ちゃん「だー！」（ぽいっ）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQd-Ij-YGU">
+                                <rect key="frame" x="85.5" y="194" width="243" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="LKj-Pf-b48" firstAttribute="centerX" secondItem="Qx2-31-wjF" secondAttribute="centerX" id="A9d-fe-Yv3"/>
+                            <constraint firstItem="0wC-dC-oil" firstAttribute="centerX" secondItem="Qx2-31-wjF" secondAttribute="centerX" id="B6n-u8-JUQ"/>
+                            <constraint firstItem="bQd-Ij-YGU" firstAttribute="top" secondItem="Scp-kF-g3N" secondAttribute="top" constant="150" id="CBc-7P-HVU"/>
+                            <constraint firstItem="kNp-W8-wXN" firstAttribute="top" secondItem="asm-qU-8e5" secondAttribute="bottom" constant="120" id="ChG-JD-PRI"/>
+                            <constraint firstItem="bQd-Ij-YGU" firstAttribute="centerX" secondItem="Qx2-31-wjF" secondAttribute="centerX" id="XW0-zI-Vae"/>
+                            <constraint firstItem="0wC-dC-oil" firstAttribute="top" secondItem="bQd-Ij-YGU" secondAttribute="bottom" constant="75" id="ifd-d5-YQY"/>
+                            <constraint firstItem="asm-qU-8e5" firstAttribute="centerX" secondItem="Qx2-31-wjF" secondAttribute="centerX" id="k5k-uI-esN"/>
+                            <constraint firstItem="asm-qU-8e5" firstAttribute="top" secondItem="0wC-dC-oil" secondAttribute="bottom" constant="50" id="o7L-cL-nOW"/>
+                            <constraint firstItem="LKj-Pf-b48" firstAttribute="top" secondItem="kNp-W8-wXN" secondAttribute="bottom" constant="120" id="pB7-U9-fEI"/>
+                            <constraint firstItem="kNp-W8-wXN" firstAttribute="centerX" secondItem="Qx2-31-wjF" secondAttribute="centerX" id="pvu-oq-FdD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Scp-kF-g3N"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="勝敗" id="NxM-Nd-HuJ"/>
+                    <connections>
+                        <outlet property="cpuHandLabel" destination="0wC-dC-oil" id="geE-0i-zUY"/>
+                        <outlet property="cpuVoiceLabel" destination="bQd-Ij-YGU" id="61j-Ni-d9G"/>
+                        <outlet property="resultMessageLabel" destination="kNp-W8-wXN" id="ODv-gO-f7I"/>
+                        <outlet property="selectedHandLabel" destination="asm-qU-8e5" id="aNS-Z7-7ly"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o8f-WK-JMc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="176.81159420289856" y="153.34821428571428"/>
+        </scene>
+    </scenes>
+</document>

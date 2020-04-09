@@ -1,24 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1b4-Rj-XC8">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="Fg8-NB-2VU">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <navigationController id="1b4-Rj-XC8" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DHQ-9U-TZR">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TG1-y8-gKc" kind="relationship" relationship="rootViewController" id="wGO-0o-ifZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TCI-qw-jrJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-450" y="135"/>
+        </scene>
+        <!--対戦相手選択-->
+        <scene sceneID="rSp-h0-A6Y">
+            <objects>
+                <viewController id="TG1-y8-gKc" customClass="ViewController" customModule="Practice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nI7-NJ-K1j">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="対戦相手を選んでね！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZU-zV-wyf">
+                                <rect key="frame" x="120" y="348" width="174" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2d-nb-mS5">
+                                <rect key="frame" x="160" y="439" width="94" height="30"/>
+                                <state key="normal" title="Lv.1: 赤ちゃん"/>
+                                <connections>
+                                    <action selector="babyButton:" destination="TG1-y8-gKc" eventType="touchUpInside" id="Fnw-GO-DSw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ov4-S1-FPl">
+                                <rect key="frame" x="160" y="539" width="66" height="30"/>
+                                <state key="normal" title="Lv.2: 園児"/>
+                                <connections>
+                                    <action selector="childButton:" destination="TG1-y8-gKc" eventType="touchUpInside" id="DkS-dB-3GS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1A8-In-BN1">
+                                <rect key="frame" x="160" y="639" width="66" height="30"/>
+                                <state key="normal" title="Lv.3: 大人"/>
+                                <connections>
+                                    <action selector="adultButton:" destination="TG1-y8-gKc" eventType="touchUpInside" id="FFO-ee-34R"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＜ジャンケン＞" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00J-i4-WbY">
+                                <rect key="frame" x="104" y="188" width="206" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="c2d-nb-mS5" firstAttribute="centerX" secondItem="nI7-NJ-K1j" secondAttribute="centerX" id="JYj-yl-PrN"/>
+                            <constraint firstItem="1A8-In-BN1" firstAttribute="leading" secondItem="c2d-nb-mS5" secondAttribute="leading" id="K1R-Te-0pe"/>
+                            <constraint firstItem="Ov4-S1-FPl" firstAttribute="leading" secondItem="c2d-nb-mS5" secondAttribute="leading" id="RuW-5Z-YT2"/>
+                            <constraint firstItem="LZU-zV-wyf" firstAttribute="top" secondItem="00J-i4-WbY" secondAttribute="bottom" constant="125" id="VUg-7Y-zXj"/>
+                            <constraint firstItem="c2d-nb-mS5" firstAttribute="top" secondItem="LZU-zV-wyf" secondAttribute="bottom" constant="70" id="ZuX-bt-qhl"/>
+                            <constraint firstItem="00J-i4-WbY" firstAttribute="centerX" secondItem="nI7-NJ-K1j" secondAttribute="centerX" id="jMq-3z-aLH"/>
+                            <constraint firstItem="00J-i4-WbY" firstAttribute="top" secondItem="HH4-IW-kWM" secondAttribute="top" constant="100" id="l3F-sZ-Ae6"/>
+                            <constraint firstItem="Ov4-S1-FPl" firstAttribute="top" secondItem="c2d-nb-mS5" secondAttribute="bottom" constant="70" id="tNC-qT-K3g"/>
+                            <constraint firstItem="LZU-zV-wyf" firstAttribute="centerX" secondItem="nI7-NJ-K1j" secondAttribute="centerX" id="xqp-mS-KEG"/>
+                            <constraint firstItem="1A8-In-BN1" firstAttribute="top" secondItem="Ov4-S1-FPl" secondAttribute="bottom" constant="70" id="xzq-iq-BZN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HH4-IW-kWM"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="対戦相手選択" id="e2W-bx-sZN"/>
+                    <connections>
+                        <segue destination="SkT-Ak-h9h" kind="push" identifier="toSelectHand" id="Lld-Em-kdh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LnA-Wm-hmv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="438" y="135"/>
+        </scene>
+        <!--SelectHand-->
+        <scene sceneID="4yR-re-gRX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SelectHand" id="SkT-Ak-h9h" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="sd2-rx-Qh6"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bUJ-HX-V9E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1182" y="135"/>
         </scene>
     </scenes>
 </document>
