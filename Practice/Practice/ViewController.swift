@@ -19,8 +19,9 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueIdentifier {
-            if let selectName = sender as? String {
-                (segue.destination as! SelectHandViewController).selectName = selectName
+            if let selectName = sender as? String,
+                let segueDestination = segue.destination as? SelectHandViewController {
+                segueDestination.selectName = selectName
             } else {
                 fatalError()
             }

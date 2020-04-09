@@ -23,11 +23,13 @@ class SelectHandViewController: ViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == segueName {
-            (segue.destination as! ResultViewController).selectedCpuName = selectName
-            if let playerHand = sender as? String {
-                (segue.destination as! ResultViewController).playerHand = playerHand
-            }
+        if segue.identifier == segueName,
+            let playerHand = sender as? String,
+            let segueDestination = segue.destination as? ResultViewController {
+                segueDestination.selectedCpuName = selectName
+                segueDestination.playerHand = playerHand
+        } else {
+            fatalError()
         }
     }
     

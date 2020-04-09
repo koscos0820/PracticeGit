@@ -18,15 +18,21 @@ class ResultViewController: ViewController {
     @IBOutlet private weak var selectedHandLabel: UILabel!
     @IBOutlet private weak var resultMessageLabel: UILabel!
     
+    private enum Result {
+        case win
+        case lose
+        case even
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         guard let selectedCpuName = selectedCpuName,
             let playerHand = playerHand else { fatalError() }
         
-        let cpuObj = createCpuObj(selectedCpuName)
+        let cpuObj = createCpuObj()
         let cpuHand = cpuObj.createCpuHand()
-        let resultMessage = createResultMessage(checkResult(cpuHand, playerHand))
+        let resultMessage = createResultMessage(checkResult(cpuHand: cpuHand, playerHand: playerHand))
         // Labelにテキストを登録
         cpuVoiceLabel.text = cpuObj.voice
         cpuHandLabel.text = "\(selectedCpuName)の手: \(cpuHand)"
@@ -38,17 +44,11 @@ class ResultViewController: ViewController {
         navigationController?.popToRootViewController(animated: true)
     }
     
-    private func createCpuObj(_ cpuName: String) -> Human {
+    private func createCpuObj() -> Human {
         return Baby()
     }
     
-    private enum Result {
-        case win
-        case lose
-        case even
-    }
-    
-    private func checkResult(_ cpuHand: String, _ playerHand: String) -> Result {
+    private func checkResult(cpuHand: String, playerHand: String) -> Result {
         
         if cpuHand == "グー" {
             switch playerHand {

@@ -8,7 +8,6 @@
 
 class Human {
     
-    var name: String!
     var voice: String!
     var selectableCpuHands: [String]!
     

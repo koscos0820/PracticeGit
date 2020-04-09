@@ -10,7 +10,6 @@ final class Baby: Human {
     
     override init() {
         super.init()
-        name = "赤ちゃん"
         voice = "赤ちゃん「だー！」（ぽいっ）"
         selectableCpuHands = ["グー"]
     }
